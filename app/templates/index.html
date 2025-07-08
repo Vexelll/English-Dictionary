@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vocabulary App</title>
+</head>
+<body>
+    <h1>Add New Word</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="word" placeholder="Word" required>
+        <input type="text" name="translation" placeholder="Translation" required>
+        <input type="text" name="example" placeholder="Example">
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>My Vocabulary</h2>
+    <ul>
+        {% for word in words %}
+            <li>
+                <strong>{{ word[1] }}</strong> - {{ word[2] }}
+                {% if word[3] %}<br><em>Example: {{ word[3] }}</em>{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
